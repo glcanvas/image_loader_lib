@@ -136,11 +136,15 @@ open class CommonViewFragment : Fragment() {
         listView.addOnItemClickListener(object : OnItemClickListener {
             override fun onItemClicked(position: Int, view: View) {
                 val tmpBundle = Bundle()
+                val fragment = DetailFragment()
                 tmpBundle.putString("image", listOfPreview[position].fullLink)
+                fragment.arguments = tmpBundle
+
                 if (currentDimension == "normal") {
-                    val fragment = DetailFragment()
-                    fragment.arguments = tmpBundle
                     currentActivity?.fragmentManager?.beginTransaction()?.add(R.id.listholder, fragment)
+                        ?.addToBackStack(null)?.commit()
+                } else {
+                    currentActivity?.fragmentManager?.beginTransaction()?.replace(R.id.detailholder, fragment)
                         ?.addToBackStack(null)?.commit()
                 }
             }
