@@ -19,6 +19,7 @@ import com.imageloader.nikita.image_loader.Handlers.CollectionHandler
 import com.imageloader.nikita.image_loader.Servers.DatabaseServer
 import com.imageloader.nikita.image_loader.utils.DataBaseState
 import com.imageloader.nikita.image_loader.utils.PreviewImageModel
+import kotlinx.android.synthetic.main.collections_list_fragment.view.*
 
 class CollectionListFragment : CommonViewFragment() {
 
@@ -29,10 +30,10 @@ class CollectionListFragment : CommonViewFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.collections_list_fragment, container, false)
-        listView = view.findViewById(R.id.list_item)
+        listView = view.list_item
         listAdapter = AllImageListAdapter(listOfPreview)
         listView.adapter = listAdapter
-        val layout = view.findViewById<SwipeRefreshLayout>(R.id.swipeRefreshLayout)
+        val layout = view.swipeRefreshLayout
 
         layout.setOnRefreshListener {
             val broadcastReceiver = CollectionHandler(listAdapter, listOfPreview, layout).detailReceiver

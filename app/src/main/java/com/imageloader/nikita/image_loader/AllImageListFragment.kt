@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.imageloader.nikita.image_loader.Adapters.AllImageListAdapter
-
+import kotlinx.android.synthetic.main.all_list_fragment.view.*
 
 
 class AllImageListFragment : CommonViewFragment() {
@@ -18,8 +18,8 @@ class AllImageListFragment : CommonViewFragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.all_list_fragment, container, false)
 
-        loadYetButton = view.findViewById(R.id.load_button)
-        listView = view.findViewById(R.id.list_item)
+        loadYetButton = view.load_button
+        listView = view.list_item
         listAdapter = AllImageListAdapter(listOfPreview)
         listView.adapter = listAdapter
         loadYetButton.setOnClickListener { asyncLoadList() }

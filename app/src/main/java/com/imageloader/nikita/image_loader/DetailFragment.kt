@@ -9,14 +9,15 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.detail_fragment.view.*
 import java.lang.Exception
 
 class DetailFragment : Fragment() {
     private var fullLink: String? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.detail_fragment, container, false)
-        val placeHolder = view.findViewById<ImageView>(R.id.detailImage)
-        val bar = view.findViewById<ProgressBar>(R.id.full_image_load_bar)
+        val placeHolder = view.detailImage
+        val bar = view.full_image_load_bar
         if (this.arguments?.containsKey("image") == true) {
             fullLink = this.arguments?.getString("image") ?: ""
         }

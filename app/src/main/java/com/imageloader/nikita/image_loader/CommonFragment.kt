@@ -3,11 +3,11 @@ package com.imageloader.nikita.image_loader
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.imageloader.nikita.image_loader.Adapters.CommonFragmentAdapter
+import kotlinx.android.synthetic.main.common_list_views.view.*
 
 class CommonFragment : Fragment() {
     private lateinit var currentApplication: CommonStateApplication
@@ -16,8 +16,8 @@ class CommonFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         val view = inflater.inflate(R.layout.common_list_views, container, false)
-        val page = view.findViewById<ViewPager>(R.id.common_page)
-        val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout_menu)
+        val page = view.common_page
+        val tabLayout = view.tab_layout_menu
         tabLayout.addTab(tabLayout.newTab().setText("search by request"))
         tabLayout.addTab(tabLayout.newTab().setText("all images"))
         tabLayout.addTab(tabLayout.newTab().setText("saved"))

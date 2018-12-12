@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import com.imageloader.nikita.image_loader.Adapters.AllImageListAdapter
 import com.imageloader.nikita.image_loader.utils.AsyncLoadPreviewList
+import kotlinx.android.synthetic.main.request_list_fragment.view.*
 
 class RequestImageLIstFragment : CommonViewFragment() {
     lateinit var searchInput: SearchView
@@ -20,10 +21,10 @@ class RequestImageLIstFragment : CommonViewFragment() {
         val appl = activity?.application as CommonStateApplication
         //Log.d("1111", appl.dimension)
 
-        listView = view.findViewById(R.id.list_item)
+        listView = view.list_item
         listAdapter = AllImageListAdapter(listOfPreview)
         listView.adapter = listAdapter
-        searchInput = view.findViewById(R.id.search_input)
+        searchInput = view.search_input
         searchInput.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
